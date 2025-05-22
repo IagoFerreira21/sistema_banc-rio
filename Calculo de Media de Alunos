@@ -16,7 +16,9 @@ media = (n1 + n2) / 2: Calcula a média aritmética das duas notas e armazena em
 
 print('A média do aluno {} com as notas {:.1f} e {:.1f} é {:.1f}'.format(nome, n1, n2, media)): Exibe uma mensagem formatada com o nome do aluno, as duas notas e a média calculada. A formatação {:.1f} garante que as notas e a média sejam exibidas com uma casa decimal.
 
+Tecnologias utilizadas
 
+Python 3
 
 
 nome = input ('nome do Aluno:')
