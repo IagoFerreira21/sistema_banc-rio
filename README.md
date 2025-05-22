@@ -1,5 +1,6 @@
 # sistema_banc-rio
 Projeto de um sistema bancário seguro e com transações bancaria 
+
 print(input('Usuario:'))
 menu = '''
 
@@ -33,7 +34,7 @@ while True:
         valor = float(input('informe o valor:'))
 
         excedeu_saldo = valor > saldo
-        excedeu_limite = valor > valor limite
+        excedeu_limite = valor > valor 
         excedeu_saque = numero_saque >= limite_de_saque
 
         if excedeu_saldo:
