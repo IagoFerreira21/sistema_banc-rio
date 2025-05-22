@@ -1,20 +1,3 @@
-# Sistema Bancário em Python
-
-Este é um sistema bancário simples feito em Python, que permite ao usuário realizar operações como depósito, saque e consulta de extrato diretamente pelo terminal.
-
-## Funcionalidades
-
-- Depósito com validação de valor
-- Saque com limite diário de 3 operações
-- Saque com limite máximo de R$ 500 por operação
-- Geração de extrato com todas as movimentações realizadas
-- Interface simples e interativa via terminal
-
-## Tecnologias utilizadas
-
-- Python 3.
-
-
 print(input('Usuario:'))
 menu = '''
 
