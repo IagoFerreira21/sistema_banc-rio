@@ -18,10 +18,15 @@ Este é um sistema bancário simples feito em Python, que permite ao usuário re
 
  Certifique-se de ter o Python instalado em sua máquina.
 
+from datetime import datetime
+import pytz
+data = datetime.now(pytz.timezone('America/Maceio'))
+print(data)
 menu = '''
 
 [d] Depositar
 [s] Sacar
+[c] Criar novo cliente
 [e] Extrato
 [q] Sair
 
@@ -33,6 +38,35 @@ extrato = ''
 numero_saque = 0
 limite_de_saque = 3
 
+clientes = []  # Agora está fora do loop principal
+
+def criar_cliente():
+    nome = input("Informe o nome completo: ")
+    cpf = input("Informe o CPF (somente números): ")
+    data_nascimento = input("Informe a data de nascimento (dd-mm-aaaa): ")
+    endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
+
+    for cliente in clientes:
+        if cliente["cpf"] == cpf:
+            print("\n@@@ Já existe cliente com esse CPF! @@@")
+            return
+
+    clientes.append({
+        "nome": nome,
+        "cpf": cpf,
+        "data_nascimento": data_nascimento,
+        "endereco": endereco
+    })
+
+    print("\n=== Cliente criado com sucesso! ===")
+    
+    while True:
+    opcao = input(menu).lower()
+
+    if opcao == 'c':
+        criar_cliente()
+
+
 while True:
     opcao = input(menu)
 
@@ -41,7 +75,8 @@ while True:
 
         if valor > 0:
             saldo += valor
-            extrato += f'Deposito: R$:{valor:.2f}\n'
+            data_hora = datetime.now().strftime('%d/%m/%y %H:%M:%S')
+            extrato += f'{data_hora} - sacar - Deposito: R$:{valor:.2f}\n'
 
         else:
             print ("Operacao falhou! Valor invalido")
@@ -64,7 +99,8 @@ while True:
 
         elif valor > 0:
             saldo -= valor
-            extrato += f'saque: R$ {valor:.2f}\n'
+            data_hora = datetime.now().strftime('%d/%m/%y %H:%M:%S')
+            extrato += f'{data_hora} - saque: R$ {valor:.2f}\n'
             numero_saque += 1
 
         else:
