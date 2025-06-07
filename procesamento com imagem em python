@@ -1,0 +1,35 @@
+from setuptools import setup, find_packages
+import pathlib
+
+# Caminho absoluto para o diretório onde está o setup.py
+base_dir = pathlib.Path(__file__).parent.resolve()
+
+# Lê o conteúdo do README.md
+long_description = (base_dir / "README.md").read_text(encoding="utf-8")
+
+setup(
+    name="meu-pacote-iago",  
+    version="0.1.0",
+    author="Iago Ferreira",
+    author_email="iagoferreira92015@gmail.com",
+    description="Um pacote simples para processamento de imagens com Python",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/IagoFerreira21/sistema_banc-rio",  # Repositório público no GitHub
+    packages=find_packages(),
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    keywords="imagem, processamento, pillow, exemplo",  # Palavras-chave para o PyPI
+    python_requires='>=3.6',
+    install_requires=[
+        "Pillow>=9.0.0"
+    ],
+    include_package_data=True,
+    license="MIT",
+)
